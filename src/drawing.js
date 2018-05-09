@@ -851,9 +851,9 @@ async autoBenchmark(pistons, trials) {
         // var t1 = performance.now();
         // console.log("Call to updatePoints took " + (t1 - t0) + " milliseconds.");
 
-        // test();
+        test();
         // console.log(this.state.shapes);
-        console.log(this.autoBenchmark(10, 20));
+        // console.log(this.autoBenchmark(10, 20));
         break;
       case 82: //r: reset
         this.clearDrawing();
@@ -973,10 +973,10 @@ async autoBenchmark(pistons, trials) {
           <a className={"tools"} onClick={() => this.makeX()}>Set X</a><br/>
           <a className={"tools"} onClick={() => this.makeY()}>Set Y</a><br/>
           <a className={"tools"} onClick={() => this.makeFixed()}>Fix</a><br/>
-          <a className={"tools"} onClick={() => this.makeDistance()}>Length</a><input type="text" id="length" style={{fontSize:14, width: "30px"}}/><br/>
+          <a className={"tools"} onClick={() => this.makeDistance()}>Distance</a><input type="text" id="length" style={{fontSize:14, width: "30px"}}/><br/>
           <a className={"tools"} onClick={() => this.makeParallel()}>Parallel</a><br/>
           <a className={"tools"} onClick={() => this.makePerpendicular()}>Perpendicular</a><br/>
-          <a className={"tools"} onClick={() => this.benchmark()}>Run Benchmark</a><input type="text" id="bm" style={{fontSize:14, width: "30px"}}/><br/>
+          {/*<a className={"tools"} onClick={() => this.benchmark()}>Run Benchmark</a><input type="text" id="bm" style={{fontSize:14, width: "30px"}}/><br/>*/}
           {/*<a className={"tools"} onClick={() => this.makeAngle()}>Angle</a><input type="text" id="angle" style={{fontSize:14, width: "30px"}}/><br/> */}
         </div>
 
