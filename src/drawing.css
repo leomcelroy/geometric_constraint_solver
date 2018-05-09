@@ -1,0 +1,50 @@
+.grid {
+  display: grid;
+  grid-template-columns: 100px 302px 200px;
+  grid-column-gap: 10px;
+}
+
+.drawAreaStyle {
+  border: 1px solid black;
+  outline-color: black;
+  grid-column: 2;
+  border-style: solid;
+  margin-left: 20;
+  display: block;
+  height: 300px;
+}
+
+.constraints {
+  grid-column: 1;
+  grid-row: 1;
+  cursor: default;
+}
+
+.constraint:hover {
+  color: grey;
+}
+
+.constraints .x {
+  float: right;
+  margin-right: 30;
+  color: orange;
+  font-weight: bold;
+}
+
+.constraints .x:hover {
+  color: red;
+}
+
+.sidebar {
+  grid-column: 3;
+  grid-row: 1;
+  cursor: default;
+}
+
+.tools:hover {
+  color: grey;
+}
+
+em {
+  text-decoration: underline;
+}
