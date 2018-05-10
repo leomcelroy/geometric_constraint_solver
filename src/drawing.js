@@ -589,7 +589,7 @@ makePerpendicular(){
 // ------------------------------benchmark------------------------------------
 
 // construct piston and see how long it takes to resolve, displace each point randomly
-// have it construct many pistons on top of each other
+// have it construct many pistons
 
 makePiston(startID) {
   let randomPoint = (oldID) => {
@@ -646,26 +646,11 @@ async makePistons(num) {
   return
 }
 
-// async fetchTime() {
-//   return performance.now();
-// }
-//
-// async getId() {
-//   return this.state.IDcounter;
-// }
-//
-// async logPistons() {
-//   console.log(this.state.shapes)
-//   return console.log("number of pistons",this.state.shapes.length/3);
-// }
-
 async benchmark() {
   let n = parseInt(document.getElementById('bm').value);
 
   await this.makePistons(n);
-  // await this.logPistons();
   let t0 = performance.now();
-  // await this.asyncUpdate();
   this.updatePoints();
   this.forceUpdate();
   let t1 = performance.now();

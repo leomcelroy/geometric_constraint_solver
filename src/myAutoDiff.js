@@ -209,14 +209,13 @@ const evaluate = (eq, variables) => { //remove test
 
 const backtrack = (r, ds, eq, stepSize, threshold, epsilon, variables) => {
   let beta = .5;
-  //console.log("count");
   let varsPrime = {};
   Object.keys(variables).forEach( (key,index) => {
     varsPrime[key] = variables[key] - ds.map(der => der*stepSize)[index];
   });
   let rPrime = evaluate(eq, varsPrime).val;
   if ((r - rPrime) >= (stepSize * threshold)) {
-    return ([varsPrime, Math.abs(r-rPrime) < epsilon]); //TODO: What the hell is going on with this converged thing?
+    return ([varsPrime, Math.abs(r-rPrime) < epsilon]);
   } else {
     return backtrack(r, ds, eq, stepSize * beta, threshold, epsilon, variables);
   }
@@ -231,11 +230,7 @@ const step = (eq, variables) => { //have to input cost function, takes one funct
   let next = backtrack(r, ds, eq, 1, threshold, epsilon, variables);
   let converged = next[1];
 
-  // console.log("converged", converged);
-  // console.log("(r < epsilon)", (r < epsilon))
-  // ds.every(der => console.log("der", Math.abs(der)))
-
-  if ( (r < epsilon) || ds.every(der => Math.abs(der) < epsilon) || converged) { //TODO: What the hell is going on with this converged thing?
+  if ( (r < epsilon) || ds.every(der => Math.abs(der) < epsilon) || converged) {
     return [variables, "done"];
   } else {
     return next;
@@ -244,21 +239,16 @@ const step = (eq, variables) => { //have to input cost function, takes one funct
 
 const minimize = (eq, variables) => { //single eq and variables
   let path = [];
-  let current = step(eq, variables); //TODO: What the hell is going on with this converged thing?
+  let current = step(eq, variables);
   path.push(current[0])
 
   let newVariables, converged;
 
   while (current[1] !== "done") {
     newVariables = current[0];
-    // let indicator = Object.values(newVariables).reduce((a, c) => a+c);
-    //console.log("new var", JSON.stringify(newVariables));
-    //converged = current[1];
     path.push(newVariables);
 
     current = step(eq, newVariables);
-
-    // if(path.length > 10) {break;} //adding max steps
   }
 
   // console.log("path", path.length);
