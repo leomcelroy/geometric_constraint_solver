@@ -66,7 +66,7 @@ class DrawArea extends React.Component {
     this.solver = new Solver();
   }
 
-  updatePoints() { //TODO: lines without points
+  updatePoints() { //TODO: remove lines without points
     // console.log("solver", JSON.stringify(this.solver));
     // console.log("sols", JSON.stringify(this.solver.solve()[1]));
 
@@ -777,7 +777,7 @@ async autoBenchmark(pistons, trials) {
 
     switch (code) {
       case 13: //enter
-        console.log(this.state.shapes);
+        // console.log(this.state.shapes);
         switch (this.state.tool) {
           case "POLYLINE":
               this.setState({isDrawing:false})

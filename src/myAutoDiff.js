@@ -307,7 +307,7 @@ const test = () => {
 
   minimize("((2*x+3*y)*(x-y)-2)**2 + (3*x+y-5)**2",{x:2,y:0})
 
-  console.log(eq);
+  // console.log(eq);
 
 }
 
